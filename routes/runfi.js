@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
 
   target.runPortableSuite(deviceId);
 
-  res.send("Running Portble Suite");
+  res.statusMessage = "Running Portable Suite on device " + deviceId;
+  res.send();
 });
 
 
