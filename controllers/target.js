@@ -7,7 +7,7 @@ var device = require('./device');
  * Run Portable Suite on a device
  */
 exports.runPortableSuite = function (deviceId) {
-    console.log("run Portable Suite on device: " + deviceId);
+    console.log("Run Portable Suite on device: " + deviceId);
     device.runPortableSuite(deviceId);
 }
 
