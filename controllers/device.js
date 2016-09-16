@@ -7,10 +7,10 @@ var http = require('http');
 /** 
  * Search for an available devices
  */
-exports.runPortableSuite = function (deviceId) {
+exports.runPortableSuite = function (deviceId, runId) {
     console.log("Starting Portable Suite for deviceId: " + deviceId);
     
-    var child = exec('java -jar ./controllers/dummy.jar ' + deviceId);
+    var child = exec('java -jar ./controllers/dummy.jar '+ runId + ' ' + deviceId);
     child.stdout.on('data', function(data) {
         console.log('stdout: ' + data);
     });
@@ -20,7 +20,7 @@ exports.runPortableSuite = function (deviceId) {
     child.on('close', function(code) {
         console.log('closing code: ' + code);
         //Call Controller API to release the device
-        http.get({hostname: 'localhost',port: 3000,
+        http.get({hostname: '192.168.1.223',port: 3000,
             path: '/endrun?deviceid=' + deviceId,
             agent: false}, 
             (res) => {
