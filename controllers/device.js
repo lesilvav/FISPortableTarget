@@ -7,10 +7,10 @@ var http = require('http');
 /** 
  * Search for an available devices
  */
-exports.runPortableSuite = function (deviceId) {
+exports.runPortableSuite = function (deviceId, runId) {
     console.log("Starting Portable Suite for deviceId: " + deviceId);
     
-    var child = exec('java -jar ./controllers/dummy.jar ' + deviceId);
+    var child = exec('java -jar ./controllers/dummy.jar '+ runId + ' ' + deviceId);
     child.stdout.on('data', function(data) {
         console.log('stdout: ' + data);
     });
