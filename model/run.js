@@ -1,5 +1,10 @@
 /**
- * Represents a Run
+ * Represents a Run. 
+ * @example
+ * //To create a run 
+ * var run = new Run(req);
+ * @Constructor
+ * @param {object} req - RUN Request.Contains parameters to build a RUN.
  */
 
 function Run(req){
@@ -15,4 +20,5 @@ function Run(req){
     this.featuresToRun = req.query.FEATURETORUN;
 }
 
-module.exports
+
+module.exports = Run;
